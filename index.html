@@ -27,116 +27,176 @@
 
     var question = [[570,90],[570,100],[570,110],[570,120],[570,130],[580,130],[590,120],[590,110],[590,100],[580,90],[610,110],[610,120],[610,130],[620,130],[630,130],[630,120],[630,110],[630,100],[630,90],[620,90],[610,90],[610,100],[670,90],[670,100],[680,110],[680,120],[680,130],[690,100],[690,90],[710,90],[710,100],[710,110],[710,120],[710,130],[720,130],[730,130],[730,120],[730,110],[730,100],[730,90],[720,90],[750,90],[750,100],[750,110],[750,120],[750,130],[760,130],[770,130],[770,120],[770,110],[770,100],[770,90],[810,90],[810,100],[810,120],[810,110],[810,130],[820,130],[830,130],[850,90],[850,100],[850,110],[850,120],[850,130],[870,90],[870,100],[870,110],[870,130],[870,120],[880,110],[890,100],[890,90],[890,120],[890,130],[910,90],[910,100],[910,110],[910,120],[910,130],[920,130],[930,130],[920,110],[920,90],[930,90],[570,170],[570,180],[570,190],[570,200],[570,210],[570,220],[570,230],[570,240],[570,250],[580,250],[590,250],[580,240],[580,230],[580,220],[580,210],[580,200],[580,190],[580,170],[580,180],[590,170],[600,240],[600,180],[610,190],[610,200],[610,210],[610,220],[610,230],[640,170],[640,180],[640,190],[640,200],[640,210],[640,230],[640,240],[640,250],[630,170],[630,190],[630,180],[630,200],[630,210],[630,230],[630,220],[630,240],[630,250],[640,220],[650,170],[670,180],[670,190],[660,210],[650,210],[670,200],[660,170],[660,220],[670,230],[670,240],[670,250],[690,170],[690,180],[690,190],[690,200],[690,210],[690,220],[690,230],[700,250],[710,250],[720,250],[700,240],[700,230],[700,220],[700,210],[700,200],[700,180],[700,170],[700,190],[690,240],[730,240],[730,230],[730,220],[730,210],[730,200],[730,190],[730,180],[730,170],[750,170],[750,180],[750,190],[750,200],[750,210],[750,220],[750,230],[750,240],[750,250],[760,210],[770,210],[760,170],[770,170],[760,180],[760,190],[760,200],[760,220],[760,230],[760,240],[760,250],[780,210],[780,170],[790,180],[790,200],[790,190],[810,250],[810,240],[810,220],[810,230],[810,210],[810,200],[810,190],[810,180],[820,180],[820,190],[820,200],[820,210],[820,220],[820,230],[820,250],[820,240],[850,250],[850,240],[850,230],[850,220],[850,210],[850,200],[850,190],[850,180],[840,170],[830,170],[830,210],[840,210],[820,170],[870,170],[870,180],[870,190],[870,200],[870,210],[870,220],[870,230],[870,240],[870,250],[880,250],[890,250],[900,250],[910,250],[880,240],[880,230],[880,220],[880,210],[880,190],[880,200],[880,180],[880,170],[950,250],[950,230],[970,200],[970,190],[960,170],[950,170],[940,170],[970,180],[950,220],[960,210],[930,180],[930,190]];
 
-      var gCanvasElement = document.getElementById("b");
-      var context = gCanvasElement.getContext("2d");
-      var drupalCounter = 0;
-      var wh = 0;
-      var mainColor = '#0678be';
-      var colors = ['#ff00ff', '#00ff00','#ff9933'];
-      var colorCount = 0;
-      var drupal1, drupal2, drupal3;
-      var loader = document.getElementById('loader');
+    var yesButton = [[610,400],[620,400],[630,400],[650,400],[640,400],[660,400],[670,400],[680,400],[690,400],[700,400],[710,400],[720,400],[730,400],[740,400],[750,400],[760,400],[770,400],[770,390],[770,380],[770,370],[770,360],[770,350],[770,340],[770,330],[610,320],[620,320],[630,320],[640,320],[650,320],[660,320],[670,320],[680,320],[690,320],[700,320],[710,320],[720,320],[730,320],[740,320],[750,320],[760,320],[770,320],[610,380],[610,390],[610,370],[610,360],[610,340],[610,350],[610,330],[620,330],[630,330],[640,330],[650,330],[670,330],[660,330],[680,330],[690,330],[700,330],[710,330],[720,330],[730,330],[740,330],[750,330],[760,330],[760,340],[760,350],[760,360],[760,370],[760,380],[760,390],[750,390],[730,390],[720,390],[710,390],[740,390],[740,380],[740,370],[740,360],[730,350],[740,350],[740,340],[750,340],[750,350],[750,380],[750,370],[750,360],[710,380],[710,370],[710,360],[710,350],[710,340],[700,350],[700,370],[720,370],[700,390],[690,390],[680,390],[680,380],[680,370],[680,360],[680,350],[680,340],[660,340],[660,350],[670,370],[670,380],[670,390],[660,390],[650,390],[650,380],[650,370],[640,340],[640,350],[640,360],[640,370],[640,380],[640,390],[630,390],[630,380],[630,370],[630,360],[630,350],[630,340],[620,340],[620,360],[620,350],[620,370],[620,390],[620,380]];
 
-      var button1 = document.createElement('button');
-      button1.innerHTML ='Yes';
-      button1.id='Yes';
+    var noButton = [[930,320],[930,400],[920,400],[910,400],[900,400],[890,400],[880,400],[870,400],[860,400],[850,400],[840,400],[830,400],[820,400],[810,400],[800,400],[800,390],[800,380],[800,370],[800,360],[800,340],[800,350],[800,330],[800,320],[810,320],[820,320],[830,320],[840,320],[850,320],[860,320],[870,320],[880,320],[890,320],[900,320],[910,320],[920,320],[950,400],[940,400],[940,320],[950,320],[950,390],[950,380],[950,370],[950,360],[950,350],[950,340],[950,330],[810,390],[820,390],[830,390],[840,390],[850,390],[860,390],[870,390],[880,390],[890,390],[900,390],[910,390],[920,390],[930,390],[940,390],[940,380],[940,370],[940,360],[940,350],[940,340],[940,330],[930,330],[930,340],[930,350],[930,360],[930,370],[930,380],[920,380],[920,370],[920,360],[920,350],[920,340],[920,330],[910,330],[900,330],[890,330],[880,330],[870,330],[860,330],[850,330],[840,330],[830,330],[820,330],[810,340],[810,330],[810,350],[810,360],[810,370],[810,380],[820,380],[830,380],[830,370],[830,360],[830,350],[830,340],[820,340],[820,350],[820,370],[820,360],[850,380],[860,380],[850,370],[860,360],[860,350],[860,340],[850,340],[850,350],[880,340],[880,350],[880,360],[880,370],[880,380],[900,370],[900,360],[900,350]];
 
-      button1.onclick = function(){
-        helloDrupal();
+    var gCanvasElement = document.getElementById("b");
+    var context = gCanvasElement.getContext("2d");
+    var drupalCounter = 0;
+    var drupalCounter2 = 0;
+    var wh = 0;
+    var mainColor = '#0678be';
+    var colors = ['#ff00ff', '#00ff00','#ff9933'];
+    var colorCount = 0;
+    var drupal1, drupal2, drupal3;
+    var loader = document.getElementById('loader');
+    var x, y, xx, yy;
+    var buttonSwitch = false;
+
+    function drawCell(mass,color,width,height){
+      for(var i=0; i<mass.length; i++) {
+        context.fillStyle = color;
+        context.fillRect(mass[i][0],mass[i][1],width,height);
       }
+    }
 
-      var button2 = document.createElement('button');
-      button2.innerHTML ='No';
-      button2.id='No';
+    function clearCanvas(){
+      gCanvasElement.width = gCanvasElement.width;
+    }
 
-      button2.onclick = function(){
-        hellToDrupal();
-        //gCanvasElement.style.transform = 1.2;
-      }
-
-      function drawCell(mass,color,width,height){
-        gCanvasElement.width = gCanvasElement.width;
-        for(var i=0; i<mass.length; i++) {
-          context.fillStyle = color;
-          context.fillRect(mass[i][0],mass[i][1],width,height);
+    function writeQuestion () {
+      drupalCounter = 0;
+      wh = 9;
+      drupal1 = setInterval(function(){
+        if (drupalCounter < question.length){
+          context.fillStyle = mainColor;
+          context.fillRect(question[drupalCounter][0], question[drupalCounter][1], wh, wh);
+            drupalCounter++;
+        } else {
+          window.clearInterval(drupal1);
+          drawButtons();
         }
-      }
+      }, 10);
+    }
 
-      function writeQuestion () {
-        drupalCounter = 0;
+    function drawButtons() {
+      drupalCounter = 0;
+      drupalCounter2 = 0;
+      wh = 9;
+      drupal1 = setInterval(function(){
+        if (drupalCounter < yesButton.length){
+          context.fillStyle = '#00ff00';
+          context.fillRect(yesButton[drupalCounter][0], yesButton[drupalCounter][1], wh, wh);
+            drupalCounter++;
+        } else {
+          window.clearInterval(drupal1);
+        }
+      }, 10);
+      drupal2 = setInterval(function(){
+        if (drupalCounter2 < noButton.length){
+          context.fillStyle = '#ff0000';
+          context.fillRect(noButton[drupalCounter2][0], noButton[drupalCounter2][1], wh, wh);
+            drupalCounter2++;
+        } else {
+          window.clearInterval(drupal2);
+        }
+      }, 10);
+    }
+
+    function drupalDraw() {
+      drupal1 = window.setInterval(function(){
         wh = 9;
-        drupal1 = setInterval(function(){
-          if (drupalCounter < question.length){
-            context.fillStyle = mainColor;
-            context.fillRect(question[drupalCounter][0], question[drupalCounter][1], wh, wh);
-              drupalCounter++;
-          } else {
-            window.clearInterval(drupal1);
-          }
-        }, 10);
-      }
-
-      function drupalDraw() {
-        drupal1 = window.setInterval(function(){
-          wh = 9;
-          if (drupalCounter < coord.length){
-            context.fillStyle = mainColor;
-            context.fillRect(coord[drupalCounter][0], coord[drupalCounter][1], wh, wh);
-              drupalCounter++;
-          } else {
-            window.clearInterval(drupal1);
-            drupalMove();
-            //loader.innerHTML = '<h1>Do you like Drupal?</h1>';
-            //loader.appendChild(button1);
-            //loader.appendChild(button2);
-          }
-        }, 1);
-      }
-
-      function helloDrupal() {
-        wh = 0;
-        drupal2 = window.setInterval(function(){
-        if (drupal3 === undefined){
-            gCanvasElement.width = gCanvasElement.width;
-            drawCell(coord, mainColor, 9, 9);
-            drawCell(coord2, colors[colorCount], wh, wh);
-              if(wh==0) {
-                colorCount = (colorCount+1)%colors.length;
-              }
-              wh = (wh+1)%9;
-          }
-        }, 200);
-      }
-
-      function drupalMove() {
-        drupalCounter = 0;
-        drupal1 = window.setInterval(function(){
-          for(var i=0; i<coord.length; i++){
-            coord[i][0]-=2;
-          }
-          drawCell(coord, mainColor, 9, 9);
-          drupalCounter++;
-          if(drupalCounter == 100){
-            clearInterval(drupal1);
-            writeQuestion();
-          }
-        } ,10);
-      }
-
-      function hellToDrupal(){
-        document.body.style.backgroundColor = '#000';
-        if(drupal2 !== undefined){
-          clearInterval(drupal2);
+        if (drupalCounter < coord.length){
+          context.fillStyle = mainColor;
+          context.fillRect(coord[drupalCounter][0], coord[drupalCounter][1], wh, wh);
+            drupalCounter++;
+        } else {
+          window.clearInterval(drupal1);
+          drupalMove();
         }
-        drupal3 = window.setInterval(function(){
-          drawCell(coord1, '#ff0000', wh, wh);
-          wh = (wh+1)%10;
-        }, 10);
-      }
+      }, 1);
+    }
 
-      window.setTimeout(function(){
-        drupalDraw();
-      }, 500);
+    function drupalMove() {
+      drupalCounter = 0;
+      drupal1 = window.setInterval(function(){
+        for(var i=0; i<coord.length; i++){
+          coord[i][0]-=2;
+        }
+        for(var i=0; i<coord2.length; i++){
+          coord2[i][0]-=2;
+        }
+        clearCanvas();
+        drawCell(coord, mainColor, 9, 9);
+        drupalCounter++;
+        if(drupalCounter == 100){
+          clearInterval(drupal1);
+          writeQuestion();
+        }
+      } ,10);
+    }
+
+    function helloDrupal() {
+      wh = 0;
+      drupal2 = window.setInterval(function(){
+      if (drupal3 === undefined){
+          gCanvasElement.width = gCanvasElement.width;
+          drawCell(coord, mainColor, 9, 9);
+          drawCell(coord2, colors[colorCount], wh, wh);
+            if(wh==0) {
+              colorCount = (colorCount+1)%colors.length;
+            }
+            wh = (wh+1)%9;
+        }
+      }, 200);
+    }
+
+    function hellToDrupal(){
+      document.body.style.backgroundColor = '#000';
+      clearCanvas();
+      drupal3 = window.setInterval(function(){
+        drawCell(coord1, '#ff0000', wh, wh);
+        wh = (wh+1)%10;
+      }, 10);
+    }
+
+    window.setTimeout(function(){
+      drupalDraw();
+    }, 500);
+
+    gCanvasElement.addEventListener("click", halmaOnClick, false);
+    //gCanvasElement.addEventListener("mousemove", halmaOnHover, false);
+
+    function setCanvasCoords(e) {
+      if (e.pageX != undefined && e.pageY != undefined) {
+        x = e.pageX;
+        y = e.pageY;
+      }
+      else {
+        x = e.clientX + document.body.scrollLeft +
+        document.documentElement.scrollLeft;
+        y = e.clientY + document.body.scrollTop +
+        document.documentElement.scrollTop;
+      }
+      x -= gCanvasElement.offsetLeft;
+      y -= gCanvasElement.offsetTop;
+      console.log(x+','+y);
+    }
+
+    function halmaOnClick(e) {
+      setCanvasCoords(e);
+      checkCoords();
+    }
+
+    function halmaOnHover(e) {
+      setCanvasCoords(e);
+      xx = Math.floor(x/10)*10;
+      yy = Math.floor(y/10)*10;
+    }
+
+    function checkCoords(){
+      if(!buttonSwitch) {
+        if(x>=610&&y>=320&&x<=780&&y<=410) {
+          buttonSwitch = true;
+          helloDrupal();
+        }
+        if(x>=800&&y>=320&&x<=960&&y<=410) {
+          buttonSwitch = true;
+          hellToDrupal();
+        }
+      }
+    }
 
   </script>
 </div>
