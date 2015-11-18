@@ -41,8 +41,9 @@
     var colorCount = 0;
     var drupal1, drupal2, drupal3;
     var loader = document.getElementById('loader');
-    var x, y, xx, yy;
+    var x, y;
     var buttonSwitch = false;
+    var animation = true;
 
     function drawCell(mass,color,width,height){
       for(var i=0; i<mass.length; i++) {
@@ -90,6 +91,7 @@
             drupalCounter2++;
         } else {
           window.clearInterval(drupal2);
+          animation = false;
         }
       }, 10);
     }
@@ -127,6 +129,22 @@
       } ,10);
     }
 
+    function drupalMoveR() {
+      drupalCounter = 0;
+      drupal1 = window.setInterval(function(){
+        for(var i=0; i<coord.length; i++){
+          coord[i][0]+=2;
+        }
+        clearCanvas();
+        drawCell(coord, mainColor, 9, 9);
+        drupalCounter++;
+        if(drupalCounter == 100){
+          clearInterval(drupal1);
+          hellToDrupal();
+        }
+      } ,10);
+    }
+
     function helloDrupal() {
       wh = 0;
       drupal2 = window.setInterval(function(){
@@ -144,8 +162,8 @@
 
     function hellToDrupal(){
       document.body.style.backgroundColor = '#000';
-      clearCanvas();
       drupal3 = window.setInterval(function(){
+        clearCanvas();
         drawCell(coord1, '#ff0000', wh, wh);
         wh = (wh+1)%10;
       }, 10);
@@ -156,7 +174,7 @@
     }, 500);
 
     gCanvasElement.addEventListener("click", halmaOnClick, false);
-    //gCanvasElement.addEventListener("mousemove", halmaOnHover, false);
+    gCanvasElement.addEventListener("mousemove", halmaOnHover, false);
 
     function setCanvasCoords(e) {
       if (e.pageX != undefined && e.pageY != undefined) {
@@ -181,8 +199,30 @@
 
     function halmaOnHover(e) {
       setCanvasCoords(e);
-      xx = Math.floor(x/10)*10;
-      yy = Math.floor(y/10)*10;
+      if(!buttonSwitch&&(!animation)) {
+        if(x>=610&&y>=320&&x<=780&&y<=410) {
+          clearCanvas();
+          drawCell(coord, mainColor, 9, 9);
+          drawCell(question, mainColor, 9, 9);
+          drawCell(yesButton, '#0000ff', 9, 9);
+          drawCell(noButton, '#ff0000', 9, 9);
+          console.log('yes');
+        }
+        if(x>=800&&y>=320&&x<=960&&y<=410) {
+          clearCanvas();
+          drawCell(coord, mainColor, 9, 9);
+          drawCell(question, mainColor, 9, 9);
+          drawCell(yesButton, '#00ff00', 9, 9);
+          drawCell(noButton, '#0000ff', 9, 9);
+        }
+        if(!(x>=610&&y>=320&&x<=780&&y<=410)&&(!(x>=800&&y>=320&&x<=960&&y<=410))){
+          clearCanvas();
+          drawCell(coord, mainColor, 9, 9);
+          drawCell(question, mainColor, 9, 9);
+          drawCell(yesButton, '#00ff00', 9, 9);
+          drawCell(noButton, '#ff0000', 9, 9);
+        }
+      }
     }
 
     function checkCoords(){
@@ -193,7 +233,7 @@
         }
         if(x>=800&&y>=320&&x<=960&&y<=410) {
           buttonSwitch = true;
-          hellToDrupal();
+          drupalMoveR();
         }
       }
     }
